@@ -1,4 +1,3 @@
-
 extends layout
 
 block content
@@ -13,8 +12,13 @@ block content
 
   div.container-fluid
     div.row
-      each item in results
-        div.col-sm-2
+      each item, index in results
+        div.col-sm-2(onclick=`buy(${index})`)
           p River: #{item.river_name}
           p Country: #{item.country}
           p Length: #{item.length_km} km
+
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index}`);
+    }
